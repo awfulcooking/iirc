@@ -23,6 +23,7 @@ require_relative "iirc/bot/verbs"
 require_relative "iirc/bot/ircv3/caps"
 require_relative "iirc/bot/ircv3/parsing"
 require_relative "iirc/bot/ircv3/batches"
+require_relative "iirc/bot/ircv3/labeled_requests"
 
 module IIRC
   class Error < StandardError; end
@@ -40,6 +41,7 @@ module IIRC
     include IRCv3::Parsing
     include IRCv3::Caps
     include IRCv3::Batches
+    include IRCv3::LabeledRequests
   end
 
   class Batteries < IRCv3Bot
