@@ -17,6 +17,7 @@ module IIRC
     def wallops(msg) for line in msg.to_s.lines; self << "WALLOPS :#{line.chomp}"; end; self end
     def kill(target, msg='.') self << "KILL #{target} :#{msg}" end
     def kick(channel, target, msg='') self << "KICK #{channel} #{target} :#{msg}" end
+    def topic(channel, new_topic='') self << (new_topic ? "TOPIC #{channel} :#{new_topic.lines.first.chomp}" : "TOPIC #{channel}") end
 
     alias :privmsg :msg
     alias :say :msg
