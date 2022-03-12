@@ -19,6 +19,8 @@ module IIRC
 
         new(nick: nick, username: username, host: host)
       end
+
+      alias :from_source :from_sender
     end
 
     def initialize(nick:nil,username:nil,realname:nil,host:nil)
