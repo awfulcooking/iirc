@@ -2,7 +2,7 @@
 
 require_relative "iirc/version"
 
-module Iirc
+module IIRC
   class Error < StandardError; end
   # Your code goes here...
 end

@@ -4,20 +4,18 @@ require_relative "lib/iirc/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "iirc"
-  spec.version       = Iirc::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.version       = IIRC::VERSION
+  spec.authors       = ["mooff"]
+  spec.email         = ["mooff@awful.cooking"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.required_ruby_version = ">= 2.4.0"
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'https://mygemserver.com'"
+  spec.summary       = "Lean, mean IRC processing machine"
+  spec.description   = "A composable toolkit for IRC bots"
+  spec.homepage      = "https://github.com/awfulcooking/iirc"
+  spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/awfulcooking/iirc"
+  spec.metadata["changelog_uri"] = "https://github.com/awfulcooking/iirc/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

@@ -2,9 +2,9 @@
 
 require "test_helper"
 
-class IircTest < Minitest::Test
+class IIRCTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Iirc::VERSION
+    refute_nil ::IIRC::VERSION
   end
 
   def test_it_does_something_useful
