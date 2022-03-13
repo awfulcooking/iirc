@@ -1,4 +1,10 @@
-## [Unreleased]
+## [0.2.2] - 2022-03-13
+
+- Use escape sequences in formatting.rb for readability
+
+- Fix Event reference in parse()
+  - Bot::Event was moved to Event during refactor
+  - Missed as my code uses `include IIRC` at the top level
 
 ## [0.2.1] - 2022-03-12
 
