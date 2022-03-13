@@ -1,9 +1,13 @@
 module IIRC
   module Bot::TrackOwnNick
-    def on_nick evt
-      if me === evt.sender
-        self.user.nick = evt.args[0]
+    private
+
+      def configure_own_nick_tracking
+        on :nick,  :track_own_nick_change
       end
-    end
+
+      def track_own_nick_change evt
+        me.nick = evt.args[0] if me === evt.sender
+      end
   end
 end
