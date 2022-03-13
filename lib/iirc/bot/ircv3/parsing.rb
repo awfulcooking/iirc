@@ -6,7 +6,7 @@ module IIRC
       def parse(line)
         msg = IRCParser::Message.parse(line.chomp)
 
-        Bot::Event.new.tap { |evt|
+        Event.new.tap { |evt|
           evt.sender = IRCParser::RFCWireFormat.__stringify_prefix(msg.prefix) if msg.prefix
           evt.tags = msg.tags
           evt.verb = msg.command.downcase.to_sym

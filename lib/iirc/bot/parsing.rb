@@ -1,7 +1,7 @@
 module IIRC
   module Bot::Parsing
     def parse(line)
-      Bot::Event.new.tap { |evt|
+      Event.new.tap { |evt|
         words = line.chomp.split " "
 
         if words[0] and words[0].start_with? ":"
