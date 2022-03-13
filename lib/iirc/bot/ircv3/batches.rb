@@ -1,8 +1,6 @@
 module IIRC
   module Bot::IRCv3
     class Batch < Event
-      attr_accessor :events
-
       def events
         @events ||= []
       end
