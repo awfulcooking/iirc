@@ -63,6 +63,7 @@ module IIRC
     include Bot::AutoJoin
     include Bot::Verbs
     include Bot::AmbientVerbs
+    include Bot::RegexHooks
   end
 
   module SSL
