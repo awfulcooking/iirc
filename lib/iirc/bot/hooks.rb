@@ -31,10 +31,13 @@ module IIRC
     end
 
     def fire! verb, *args, **kwargs
+      for action in hooks[nil]
+        call action, *args, **kwargs
+      end
       if respond_to? :"on_#{verb}"
         send(:"on_#{verb}", *args, **kwargs)
       end
-      for action in [*hooks[nil], *hooks[verb]]
+      for action in hooks[verb]
         call action, *args, **kwargs
       end
     rescue StopIteration
