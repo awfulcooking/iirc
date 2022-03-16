@@ -1,3 +1,8 @@
+## [0.2.6] - 2022-03-16
+
+- Add ircparser dependency
+  - It's technically optional, but it's needed to parse IRCv3 messages
+
 ## [0.2.5] - 2022-03-16
 
 - Add dial method. Uses SSL by default, with configurable context
