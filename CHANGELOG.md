@@ -1,3 +1,7 @@
+## [0.2.7] - 2022-03-16
+
+- Include Bot::RegexHooks in Batteries
+
 ## [0.2.6] - 2022-03-16
 
 - Add ircparser dependency
