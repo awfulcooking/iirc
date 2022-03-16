@@ -113,3 +113,7 @@ module IIRC
       }
     end
 end
+
+def IIRC(*args, **kwargs, &blk)
+  Class.new(IIRC::Batteries, &blk)
+end
