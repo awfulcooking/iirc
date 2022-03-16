@@ -54,4 +54,52 @@ module IIRC
     include Bot::Verbs
     include Bot::AmbientVerbs
   end
+
+  module SSL
+    module_function
+
+    def default_context
+      verify_peer_and_hostname
+    end
+
+    def verify_peer_and_hostname
+      verify_peer.tap { |context|
+        context.verify_hostname = true
+      }
+    end
+
+    def verify_peer
+      no_verify.tap { |context|
+        context.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        context.cert_store = OpenSSL::X509::Store.new.tap(&:set_default_paths)
+      }
+    end
+
+    def verify_hostname_only
+      no_verify.tap { |context|
+        context.verify_hostname = true
+      }
+    end
+
+    def no_verify
+      require 'openssl'
+      OpenSSL::SSL::SSLContext.new
+    end
+  end
+
+  module_function
+    def dial(host, port=6697, ssl_context: SSL.default_context)
+      require 'socket'
+
+      Socket.tcp(host, port).then { |socket|
+        if ssl_context
+          OpenSSL::SSL::SSLSocket.new(socket, ssl_context).tap { |socket|
+            socket.hostname = host
+            socket.connect
+          }
+        else
+          socket
+        end
+      }
+    end
 end
