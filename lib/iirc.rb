@@ -37,6 +37,16 @@ module IIRC
     include Configure
     include Pong
     include TrackOwnNick
+
+    def self.run(host, port=6697, ssl_context: SSL.default_context, **user_params, &blk)
+      socket = IIRC.dial(host, port, ssl_context: ssl_context)
+
+      new(socket, **user_params).tap { |bot|
+        bot.register!
+        bot.tap(&blk) if blk
+        bot.run
+      }
+    end
   end
 
   class IRCv3Bot < Bot
