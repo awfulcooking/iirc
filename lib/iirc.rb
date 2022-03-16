@@ -46,10 +46,10 @@ module IIRC
   end
 
   class Batteries < IRCv3Bot
-    include Channels
-    include Members
-    include Formatting
-    include AutoJoin
-    include Verbs
+    include Bot::Channels
+    include Bot::Members
+    include Bot::Formatting
+    include Bot::AutoJoin
+    include Bot::Verbs
   end
 end
