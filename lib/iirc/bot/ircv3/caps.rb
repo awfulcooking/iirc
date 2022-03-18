@@ -12,6 +12,10 @@ module IIRC
       def cap! name
         self << "CAP REQ :#{name}"
       end
+
+      def cap_end!
+        self << "CAP END"
+      end
     end
   end
 end
