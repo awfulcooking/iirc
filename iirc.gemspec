@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = IIRC::VERSION
   spec.authors       = ["mooff"]
   spec.email         = ["mooff@awful.cooking"]
+  spec.license       = "MIT"
 
   spec.summary       = "Lean, mean IRC processing machine"
   spec.description   = "A composable toolkit for IRC bots"
