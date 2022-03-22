@@ -1,3 +1,7 @@
+## [0.2.8] - 2022-03-22
+
+- Add MIT license
+
 ## [0.2.7] - 2022-03-16
 
 - Include Bot::RegexHooks in Batteries
