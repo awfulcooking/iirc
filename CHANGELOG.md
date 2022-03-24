@@ -1,3 +1,11 @@
+## [0.2.9] - 2022-03-24
+
+- Add reply target concept (Bot::ReplyTarget)
+  - The reply target of an event is the sender's nick when we are its target,
+    and equal to the regular target otherwise.
+  - The ambient verb methods now target the reply target of the ambient event by default.
+  - Should make writing actions more convenient.
+
 ## [0.2.8] - 2022-03-22
 
 - Add MIT license
