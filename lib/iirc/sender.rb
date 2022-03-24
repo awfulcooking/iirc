@@ -26,4 +26,13 @@ module IIRC
 
     alias :inspect :to_prefix
   end
+
+  module_function
+    def Sender(source)
+      if source.nil?
+        nil
+      else
+        (source.frozen? ? source.dup : source).extend(Sender)
+      end
+    end
 end

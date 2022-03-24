@@ -10,8 +10,7 @@ module IIRC
     end
 
     def sender=(v)
-      v.extend Sender if v
-      @sender = v
+      @sender = IIRC::Sender(v)
     end
 
     def args=(v)
