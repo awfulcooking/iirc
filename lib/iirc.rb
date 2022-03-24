@@ -19,6 +19,7 @@ require_relative "iirc/bot/print_io"
 require_relative "iirc/bot/reading"
 require_relative "iirc/bot/redis"
 require_relative "iirc/bot/regex_hooks"
+require_relative "iirc/bot/reply_target"
 require_relative "iirc/bot/track_own_nick"
 require_relative "iirc/bot/verbs"
 
