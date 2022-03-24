@@ -33,16 +33,17 @@ module IIRC
 
     def nick; user&.nick end
     def username; user&.username end
-    def host; user&.host end
+    def host; server? ? without_leading_colon : user.host end
 
     def to_prefix
       ":#{self}"
     end
 
-    def to_s
+    def without_leading_colon
       delete_prefix(':')
     end
 
+    alias :to_s :without_leading_colon
     alias :inspect :to_prefix
   end
 
