@@ -39,8 +39,10 @@ module IIRC
     include Pong
     include TrackOwnNick
 
-    def self.run(host, port=6697, ssl_context: SSL.default_context, **user_params, &blk)
-      socket = IIRC.dial(host, port, ssl_context: ssl_context)
+    def self.run(host, port=6697, local_host: nil, local_port: nil, ssl_context: SSL.default_context, **user_params, &blk)
+      socket = IIRC.dial(host, port,
+        local_host: local_host, local_port: local_port,
+        ssl_context: ssl_context)
 
       new(socket, **user_params).tap { |bot|
         bot.register!
@@ -100,10 +102,10 @@ module IIRC
   end
 
   module_function
-    def dial(host, port=6697, ssl_context: SSL.default_context)
+    def dial(host, port=6697, local_host: nil, local_port: nil, ssl_context: SSL.default_context)
       require 'socket'
 
-      Socket.tcp(host, port).then { |socket|
+      Socket.tcp(host, port, local_host, local_port).then { |socket|
         if ssl_context
           OpenSSL::SSL::SSLSocket.new(socket, ssl_context).tap { |socket|
             socket.hostname = host
