@@ -4,7 +4,7 @@ module IIRC
       autoload :IRCParser, 'ircparser'
 
       def parse(line)
-        msg = IRCParser::Message.parse(line.chomp)
+        msg = IRCParser::Message.parse(line.tr("\r", '').chomp)
 
         Event.new.tap { |evt|
           evt.sender = IRCParser::RFCWireFormat.__stringify_prefix(msg.prefix) if msg.prefix
