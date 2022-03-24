@@ -20,7 +20,7 @@ module IIRC
 
   module Sender
     def user
-      @user ||= User.from_sender(self)
+      @user ||= User.from_source(self)
     end
 
     def server?
