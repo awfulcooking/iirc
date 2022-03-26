@@ -5,6 +5,7 @@ require_relative "iirc/sender"
 require_relative "iirc/user"
 
 require_relative "iirc/bot"
+require_relative "iirc/bot/accept_invites"
 require_relative "iirc/bot/ambient"
 require_relative "iirc/bot/autojoin"
 require_relative "iirc/bot/channels"
