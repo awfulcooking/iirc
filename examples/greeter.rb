@@ -3,6 +3,7 @@ require "iirc"
 class Greeter < IIRC::Bot
   include AutoJoin
   include Verbs
+  include PrintIO
 
   def on_join(evt)
     say evt.target, "Hello #{evt.sender.nick}!" unless me === evt.sender
