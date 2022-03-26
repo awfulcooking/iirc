@@ -5,7 +5,7 @@ class Greeter < IIRC::Bot
   include Verbs
 
   def on_join(evt)
-    say evt.target, "Hello #{evt.sender.nick}!"
+    say evt.target, "Hello #{evt.sender.nick}!" unless me === evt.sender
   end
 
   def autojoin_channels
