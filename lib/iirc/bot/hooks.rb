@@ -4,6 +4,18 @@ module IIRC
       @hooks ||= Hash.new { |h,v| h[v] = Set.new }
     end
 
+    def run
+      lines { |line|
+        begin
+          evt = parse(line)
+          fire! evt.verb, evt
+        rescue Exception => ex
+          puts ex.message
+          puts ex.backtrace
+        end
+      }
+    end
+
     def on verb=nil, action=nil, &blk
       if action and blk
         define_singleton_method(action, blk)
@@ -17,10 +29,6 @@ module IIRC
       end
     end
 
-    def hook action=nil, &blk
-      on nil, action, &blk
-    end
-
     def off verb, action=nil, &blk
       action ||= blk
       if action
@@ -30,14 +38,12 @@ module IIRC
       end
     end
 
+    def hook action=nil, &blk
+      on nil, action, &blk
+    end
+
     def fire! verb, *args, **kwargs
-      for action in hooks[nil]
-        call action, *args, **kwargs
-      end
-      if respond_to? :"on_#{verb}"
-        send(:"on_#{verb}", *args, **kwargs)
-      end
-      for action in hooks[verb]
+      for action in hook_seq(verb)
         call action, *args, **kwargs
       end
     rescue StopIteration
@@ -54,16 +60,9 @@ module IIRC
       end
     end
 
-    def run
-      lines { |line|
-        begin
-          evt = parse(line)
-          fire! evt.verb, evt
-        rescue Exception => ex
-          puts ex.message
-          puts ex.backtrace
-        end
-      }
-    end
+    protected
+      def hook_seq(verb)
+        [*hooks[nil], (:"on_#{verb}" if respond_to?(:"on_#{verb}")), *hooks[verb]].compact
+      end
   end
 end
