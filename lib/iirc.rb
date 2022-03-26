@@ -39,6 +39,7 @@ module IIRC
     include Configure
     include Pong
     include TrackOwnNick
+    include ReplyTarget
 
     def self.run(host, port=6697, local_host: nil, local_port: nil, ssl_context: SSL.default_context, **user_params, &blk)
       socket = IIRC.dial(host, port,
