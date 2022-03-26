@@ -67,7 +67,7 @@ module IIRC
     include Bot::Formatting
     include Bot::AutoJoin
     include Bot::Verbs
-    include Bot::AmbientVerbs
+    include Bot::Ambient
     include Bot::RegexHooks
   end
 
