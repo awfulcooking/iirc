@@ -1,3 +1,10 @@
+## [0.3.0] - 2022-03-26
+
+- [Bot] Include ReplyTarget
+- [Hooks] Refactor
+- Add AcceptInvites module
+- Improve Greeter example
+
 ## [0.2.9] - 2022-03-24
 
 - Add reply target concept (Bot::ReplyTarget)
