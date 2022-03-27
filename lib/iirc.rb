@@ -109,6 +109,8 @@ module IIRC
 
       Socket.tcp(host, port, local_host, local_port).then { |socket|
         if ssl_context
+          ssl_context = SSL.send(ssl_context) if ssl_context.is_a? Symbol
+
           OpenSSL::SSL::SSLSocket.new(socket, ssl_context).tap { |socket|
             socket.hostname = host
             socket.connect
