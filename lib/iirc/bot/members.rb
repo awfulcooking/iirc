@@ -1,15 +1,11 @@
 module IIRC
   module Bot::Members
-    def self.configure_actions
-      [:listen_for_names]
-    end
-
     def members
       @members ||= {}
     end
 
     private
-      def listen_for_names
+      def configure_members_tracking
         on :'353', :receive_names
         on :'366', :receive_names_end
       end
