@@ -1,3 +1,21 @@
+## [0.4.0] - 2022-03-27
+
+- [Numerics] Add module with constants imported from ircdocs.horse
+  - Run `rake numerics` to re-import.
+
+- [IIRC.run,IIRC.dial] Support passing a symbol as ssl_context
+	- e.g. ssl_context: :no_verify instead of ssl_context: IIRC::SSL.no_verify
+
+- The AmbientEvents modules have been reorganised
+  - AmbientVerbs is now Ambient::Verbs
+  - AmbientEvents => Ambient::Events
+  - AmbientEvents::{LabeledRequests,ReplyTarget} => Ambient::{LabeledRequests,ReplyTarget}
+
+- #ambient_reply_target() has been replaced with #reply_target(evt=ambient_event)
+
+- [Bot.run] Set nick to class name if no param is given
+  - `MyBot.run('irc.libera.chat')` is enough to connect to Libera as 'MyBot'
+
 ## [0.3.0] - 2022-03-26
 
 - [Bot] Include ReplyTarget
