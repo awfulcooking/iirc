@@ -56,6 +56,6 @@ module IIRC
       alias :say :msg
     end
 
-    include Bot::Ambient::Verbs
+    include Verbs
   end
 end
