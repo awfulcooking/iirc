@@ -30,7 +30,7 @@ module IIRC
     end
 
     private def ensure_registration_info!
-      me.username ||= me.nick.downcase
+      me.username ||= me.nick&.downcase
       me.realname ||= me.nick
       raise ArgumentError.new('no nick given') unless me.nick && !me.nick.empty?
     end
