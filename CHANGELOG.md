@@ -4,6 +4,7 @@
 - [Hooks] Refactor
 - Add AcceptInvites module
 - Improve Greeter example
+- [IIRC.run,IIRC.dial] now accept local_host, local_port keyword arguments
 
 ## [0.2.9] - 2022-03-24
 
