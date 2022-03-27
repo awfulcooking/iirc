@@ -34,14 +34,32 @@ task :numerics do
         module Numerics
     HEADER
 
-    for row in data['values']
-      if row['comment']
-        out << "    # #{row['comment'].squeeze(' ').tr("\r", '').gsub("\n", ' ').strip}\n"
+    values = data['values'].reject { |v| v['obsolete'] }
+    counts = values.map { |v| v['name'] }.tally
+
+    constants = {}
+
+    for row in values
+      out << "    # #{row['comment'].squeeze(' ').tr("\r", '').gsub("\n", ' ').strip}\n" if row['comment']
+      out << "    # @format #{row['numeric']} #{row['format'].strip}\n" if row['format']
+
+      name = row['name']
+      if counts[name] > 1 and row['origin']
+        name += '_' + row['origin'].gsub(/[^[:alnum:]]/, '_').sub(/_{2,}/, '_').sub(/_$/, '').upcase
       end
-      if row['format']
-        out << "    # @format #{row['numeric']} #{row['format'].strip}\n"
+      if constants[name]
+        name += '_ALT'
+        if constants[name]
+          fail <<~MSG
+            Couldn't derive a unique name for #{name}.
+            Previous source: #{constants[name].inspect}
+          MSG
+        end
       end
-      out << "    #{row['name']} = #{row['numeric'].to_sym.inspect}"
+
+      constants[name] = row
+
+      out << "    #{name} = #{row['numeric'].to_sym.inspect}"
       out << "\n"
     end
 

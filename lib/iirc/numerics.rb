@@ -16,27 +16,23 @@ module IIRC
     # Part of the post-registration greeting. Also known as RPL_SERVERVERSION (InspIRCd v2)
     # @format 004 <client> <server_name> <version> <usermodes> <chanmodes> [chanmodes_with_a_parameter]
     RPL_MYINFO = :"004"
-    # Sent by the server to a user to suggest an alternative server, sometimes used when the connection is refused because the server is already full. Also known as RPL_SLINE (AustHex), and RPL_REDIR
-    # @format 005 <client> :Try server <server_name>, port <port_number>
-    RPL_BOUNCE = :"005"
     # Advertises features, limits, and protocol options that clients should be aware of. Also known as RPL_PROTOCTL (Bahamut, Unreal, Ultimate)
     # @format 005 <client> <1-13 tokens> :are supported by this server
     RPL_ISUPPORT = :"005"
-    RPL_MAP = :"006"
+    RPL_MAP_UNREAL = :"006"
     # Also known as RPL_ENDMAP (InspIRCd)
-    RPL_MAPEND = :"007"
+    RPL_MAPEND_UNREAL = :"007"
     # Server notice mask (hex). Also known as RPL_SNOMASKIS (InspIRCd)
     RPL_SNOMASK = :"008"
     RPL_STATMEMTOT = :"009"
     # Sent to the client to redirect it to another server. Also known as RPL_REDIR
     # @format 010 <client> <hostname> <port> :<info>
     RPL_BOUNCE = :"010"
-    RPL_STATMEM = :"010"
     RPL_YOURCOOKIE = :"014"
-    RPL_MAP = :"015"
-    RPL_MAPMORE = :"016"
+    RPL_MAP_IRCU = :"015"
+    RPL_MAPMORE_IRCU = :"016"
     # Also known as RPL_ENDMAP (InspIRCd)
-    RPL_MAPEND = :"017"
+    RPL_MAPEND_IRCU = :"017"
     # @format 018 <client> :<count> servers and <count> users, average <average count> users per server
     RPL_MAPUSERS = :"018"
     # Used by Rusnet to send the initial "Please wait while we process your connection" message, rather than a server-sent NOTICE.
@@ -84,7 +80,6 @@ module IIRC
     # See RFC
     # @format 209 <client> Class <class> <count>
     RPL_TRACECLASS = :"209"
-    RPL_TRACERECONNECT = :"210"
     # Used instead of having multiple stats numerics
     RPL_STATS = :"210"
     # Used to send lists of stats flags and other help information.
@@ -100,56 +95,52 @@ module IIRC
     RPL_STATSCLINE = :"213"
     # Reply to STATS (See RFC), Also known as RPL_STATSOLDNLINE (ircu, Unreal)
     # @format 214 <client> N <host> * <name> <port> <class>
-    RPL_STATSNLINE = :"214"
+    RPL_STATSNLINE_RFC1459 = :"214"
     # Reply to STATS (See RFC)
     # @format 215 <client> I <host> * <host> <port> <class>
     RPL_STATSILINE = :"215"
     # Reply to STATS (See RFC)
     # @format 216 <client> K <host> * <username> <port> <class>
     RPL_STATSKLINE = :"216"
-    RPL_STATSQLINE = :"217"
-    RPL_STATSPLINE = :"217"
+    RPL_STATSQLINE_RFC1459 = :"217"
+    RPL_STATSPLINE_IRCU = :"217"
     # Reply to STATS (See RFC)
     # @format 218 <client> Y <class> <ping_freq> <connect_freq> <max_sendq>
     RPL_STATSYLINE = :"218"
     # End of RPL_STATS* list.
     # @format 219 <client> <query> :<info>
     RPL_ENDOFSTATS = :"219"
-    RPL_STATSPLINE = :"220"
-    RPL_STATSBLINE = :"220"
+    RPL_STATSPLINE_HYBRID = :"220"
+    RPL_STATSBLINE_BAHAMUT_UNREAL = :"220"
     RPL_STATSWLINE = :"220"
     # Information about a user's own modes. Some daemons have extended the mode command and certain modes take parameters (like channel modes).
     # @format 221 <client> <user_modes> [<user_mode_params>]
     RPL_UMODEIS = :"221"
     RPL_MODLIST = :"222"
     RPL_SQLINE_NICK = :"222"
-    RPL_STATSBLINE = :"222"
+    RPL_STATSBLINE_BAHAMUT = :"222"
     RPL_STATSJLINE = :"222"
     RPL_CODEPAGE = :"222"
-    RPL_STATSELINE = :"223"
-    RPL_STATSGLINE = :"223"
+    RPL_STATSELINE_BAHAMUT = :"223"
+    RPL_STATSGLINE_UNREAL = :"223"
     RPL_CHARSET = :"223"
-    RPL_STATSFLINE = :"224"
-    RPL_STATSTLINE = :"224"
-    RPL_STATSDLINE = :"225"
+    RPL_STATSFLINE_HYBRID_BAHAMUT = :"224"
+    RPL_STATSTLINE_UNREAL = :"224"
+    RPL_STATSDLINE_HYBRID = :"225"
     RPL_STATSCLONE = :"225"
-    RPL_STATSZLINE = :"225"
-    RPL_STATSELINE = :"225"
+    RPL_STATSELINE_UNREAL = :"225"
     RPL_STATSCOUNT = :"226"
     RPL_STATSALINE = :"226"
-    RPL_STATSNLINE = :"226"
-    RPL_STATSGLINE = :"227"
-    RPL_STATSVLINE = :"227"
+    RPL_STATSNLINE_UNREAL = :"226"
+    RPL_STATSGLINE_BAHAMUT = :"227"
+    RPL_STATSVLINE_UNREAL = :"227"
     # Returns details about active DNS blacklists and hits.
-    RPL_STATSBLINE = :"227"
-    RPL_STATSQLINE = :"228"
+    RPL_STATSBLINE_RIZON = :"227"
+    RPL_STATSQLINE_IRCU = :"228"
     RPL_STATSBANVER = :"228"
     RPL_STATSSPAMF = :"229"
     RPL_STATSEXCEPTTKL = :"230"
-    RPL_SERVICEINFO = :"231"
-    RPL_ENDOFSERVICES = :"232"
-    RPL_RULES = :"232"
-    RPL_SERVICE = :"233"
+    RPL_RULES_UNREAL = :"232"
     # A service entry in the service list
     # @format 234 <client> <name> <server> <mask> <type> <hopcount> <info>
     RPL_SERVLIST = :"234"
@@ -161,10 +152,10 @@ module IIRC
     # Engine name?
     RPL_STATSENGINE = :"237"
     # Feature lines?
-    RPL_STATSFLINE = :"238"
+    RPL_STATSFLINE_IRCU = :"238"
     RPL_STATSIAUTH = :"239"
-    RPL_STATSVLINE = :"240"
-    RPL_STATSXLINE = :"240"
+    RPL_STATSVLINE_RFC2812 = :"240"
+    RPL_STATSXLINE_AUSTHEX = :"240"
     # Reply to STATS (See RFC)
     # @format 241 <client> L <hostmask> * <servername> <maxdepth>
     RPL_STATSLLINE = :"241"
@@ -178,20 +169,19 @@ module IIRC
     # @format 244 <client> H <hostmask> * <servername>
     RPL_STATSHLINE = :"244"
     RPL_STATSSLINE = :"245"
-    RPL_STATSTLINE = :"245"
-    RPL_STATSPING = :"246"
+    RPL_STATSTLINE_HYBRID = :"245"
     RPL_STATSSERVICE = :"246"
-    RPL_STATSTLINE = :"246"
-    RPL_STATSULINE = :"246"
-    RPL_STATSBLINE = :"247"
-    RPL_STATSXLINE = :"247"
-    RPL_STATSGLINE = :"247"
-    RPL_STATSULINE = :"248"
+    RPL_STATSTLINE_IRCU = :"246"
+    RPL_STATSULINE_HYBRID = :"246"
+    RPL_STATSBLINE_RFC2812 = :"247"
+    RPL_STATSXLINE_HYBRID_PTLINK__UNREAL = :"247"
+    RPL_STATSGLINE_IRCU = :"247"
+    RPL_STATSULINE_IRCU = :"248"
     RPL_STATSDEFINE = :"248"
     # Extension to RFC1459?
     RPL_STATSULINE = :"249"
     RPL_STATSDEBUG = :"249"
-    RPL_STATSDLINE = :"250"
+    RPL_STATSDLINE_RFC2812 = :"250"
     RPL_STATSCONN = :"250"
     # Reply to LUSERS command, other versions exist (eg. RFC2812); Text may vary.
     # @format 251 <client> :There are <int> users and <int> invisible on <int> servers
@@ -231,7 +221,7 @@ module IIRC
     # When a server drops a command without processing it, it MUST use this reply. The last parameter text changes, and commonly provides the client with more information about why the command could not be processed (such as rate-limiting). Also known as RPL_LOAD_THROTTLED and RPL_LOAD2HI, I'm presuming they do the same thing.
     # @format 263 <client> <command> :Please wait a while and try again.
     RPL_TRYAGAIN = :"263"
-    RPL_USINGSSL = :"264"
+    RPL_USINGSSL_RUSNET_IRCD = :"264"
     # Returns the number of clients currently and the maximum number of clients that have been connected directly to this server at one time, respectively. The two optional parameters are not always provided. Also known as RPL_CURRENT_LOCAL
     # @format 265 <client> [<u> <m>] :Current local users <u>, max <m>
     RPL_LOCALUSERS = :"265"
@@ -242,27 +232,18 @@ module IIRC
     RPL_NETSTAT = :"268"
     RPL_END_NETSTAT = :"269"
     RPL_PRIVS = :"270"
-    # Moved to 018 in InspIRCd 3.0
-    # @format 270 <client> :<count> servers and <count> users, average <average count> users per server
-    RPL_MAPUSERS = :"270"
     RPL_SILELIST = :"271"
     RPL_ENDOFSILELIST = :"272"
     RPL_NOTIFY = :"273"
     RPL_ENDNOTIFY = :"274"
     RPL_STATSDELTA = :"274"
-    RPL_STATSDLINE = :"275"
+    RPL_STATSDLINE_IRCU_ULTIMATE = :"275"
     # @format 275 <client> <nick> :is using a secure connection (SSL)
-    RPL_USINGSSL = :"275"
+    RPL_USINGSSL_BAHAMUT = :"275"
     # Shows the SSL/TLS certificate fingerprint used by the client with the given nickname. Only sent when users `"WHOIS"` themselves or when an operator sends the `"WHOIS"`. Also adopted by hybrid 8.1 and charybdis 3.2
     # @format 276 <client> <nick> :has client certificate fingerprint <fingerprint>
     RPL_WHOISCERTFP = :"276"
     RPL_STATSRLINE = :"276"
-    # Gone from hybrid 7.1 (2003)
-    RPL_VCHANEXIST = :"276"
-    # Gone from hybrid 7.1 (2003)
-    RPL_VCHANLIST = :"277"
-    # Gone from hybrid 7.1 (2003)
-    RPL_VCHANHELP = :"278"
     RPL_GLIST = :"280"
     RPL_ENDOFGLIST = :"281"
     RPL_ACCEPTLIST = :"281"
@@ -326,11 +307,11 @@ module IIRC
     RPL_NOTIFYACTION = :"308"
     RPL_WHOISADMIN = :"308"
     # Also known as RPL_RULESTART (InspIRCd)
-    RPL_RULESSTART = :"308"
+    RPL_RULESSTART_UNREAL = :"308"
     RPL_NICKTRACE = :"309"
     RPL_WHOISSADMIN = :"309"
     # Also known as RPL_RULESEND (InspIRCd)
-    RPL_ENDOFRULES = :"309"
+    RPL_ENDOFRULES_UNREAL = :"309"
     RPL_WHOISHELPER = :"309"
     RPL_WHOISSVCMSG = :"310"
     RPL_WHOISHELPOP = :"310"
@@ -351,8 +332,6 @@ module IIRC
     # @format 315 <client> <name> :<info>
     RPL_ENDOFWHO = :"315"
     RPL_WHOISPRIVDEAF = :"316"
-    # This numeric was reserved, but never actually used. The source code notes "redundant and not needed but reserved"
-    RPL_WHOISCHANOP = :"316"
     # Reply to WHOIS - Idle information
     # @format 317 <client> <nick> <seconds> :seconds idle
     RPL_WHOISIDLE = :"317"
@@ -365,9 +344,6 @@ module IIRC
     RPL_WHOISVIRT = :"320"
     RPL_WHOIS_HIDDEN = :"320"
     RPL_WHOISSPECIAL = :"320"
-    # Channel list - Header
-    # @format 321 <client> Channels :Users  Name
-    RPL_LISTSTART = :"321"
     # Channel list - A channel
     # @format 322 <client> <channel> <#_visible> :<topic>
     RPL_LIST = :"322"
@@ -380,12 +356,9 @@ module IIRC
     RPL_UNIQOPIS = :"325"
     RPL_CHANNELPASSIS = :"325"
     RPL_WHOISWEBIRC = :"325"
-    # Defined in header file in charybdis, but never used. Also known as RPL_CHANNELMLOCK.
-    # @format 325 <client> <nick> <channel> <modeletters> :is the current channel mode-lock
-    RPL_CHANNELMLOCKIS = :"325"
     RPL_NOCHANPASS = :"326"
     RPL_CHPASSUNKNOWN = :"327"
-    RPL_WHOISHOST = :"327"
+    RPL_WHOISHOST_RUSNET_IRCD = :"327"
     # Also known as RPL_CHANNELURL in charybdis
     RPL_CHANNEL_URL = :"328"
     # Also known as RPL_CHANNELCREATED (InspIRCd)
@@ -405,34 +378,28 @@ module IIRC
     RPL_LISTUSAGE = :"334"
     RPL_COMMANDSYNTAX = :"334"
     RPL_LISTSYNTAX = :"334"
-    RPL_WHOISBOT = :"335"
+    RPL_WHOISBOT_UNREAL = :"335"
     # Since hybrid 8.2.0
-    RPL_WHOISTEXT = :"335"
+    RPL_WHOISTEXT_HYBRID = :"335"
     RPL_WHOISACCOUNTONLY = :"335"
     # Since hybrid 8.2.0. Not to be confused with the more widely used 346. A "list of channels a client is invited to" sent with /INVITE
     # @format 336 <client> :<channel>
-    RPL_INVITELIST = :"336"
-    RPL_WHOISBOT = :"336"
+    RPL_INVITELIST_HYBRID = :"336"
+    RPL_WHOISBOT_NEFARIOUS = :"336"
     # Since hybrid 8.2.0. Not to be confused with the more widely used 347.
     # @format 337 <client> :End of /INVITE list.
-    RPL_ENDOFINVITELIST = :"337"
+    RPL_ENDOFINVITELIST_HYBRID = :"337"
     # Before hybrid 8.2.0, for "User connected using a webirc gateway". Since charybdis 3.4.0 for "Underlying IPv4 is %s".
-    RPL_WHOISTEXT = :"337"
+    RPL_WHOISTEXT_HYBRID_ALT = :"337"
     RPL_CHANPASSOK = :"338"
     RPL_WHOISACTUALLY = :"338"
     RPL_BADCHANPASS = :"339"
     RPL_WHOISMARKS = :"339"
-    RPL_USERIP = :"340"
+    RPL_USERIP_IRCU = :"340"
     # Returned by the server to indicate that the attempted INVITE message was successful and is being passed onto the end client. Note that RFC1459 documents the parameters in the reverse order. The format given here is the format used on production servers, and should be considered the standard reply above that given by RFC1459.
     # @format 341 <client> <nick> <channel>
     RPL_INVITING = :"341"
-    # Returned by a server answering a SUMMON message to indicate that it is summoning that user
-    # @format 342 <client> <user> :<info>
-    RPL_SUMMONING = :"342"
     RPL_WHOISKILL = :"343"
-    # Used by the third-party m_geoipban InspIRCd module.
-    # @format 344 <client> <nick> :is connected from <country> <country code>
-    RPL_WHOISCOUNTRY = :"344"
     # Used by InspIRCd's m_geoban module.
     # @format 344 <client> <nick> <country code> :is connecting from <country>
     RPL_WHOISCOUNTRY = :"344"
@@ -447,10 +414,10 @@ module IIRC
     RPL_ENDOFREOPLIST = :"345"
     # An invite mask for the invite mask list. Also known as RPL_INVEXLIST in hybrid 8.2.0
     # @format 346 <client> <channel> <invitemask>
-    RPL_INVITELIST = :"346"
+    RPL_INVITELIST_RFC2812 = :"346"
     # Termination of an RPL_INVITELIST list. Also known as RPL_ENDOFINVEXLIST in hybrid 8.2.0
     # @format 347 <client> <channel> :<info>
-    RPL_ENDOFINVITELIST = :"347"
+    RPL_ENDOFINVITELIST_RFC2812 = :"347"
     # An exception mask for the exception mask list. Also known as RPL_EXLIST (Unreal, Ultimate). Bahamut calls this RPL_EXEMPTLIST and adds the last two optional params, <who> being either the nickmask of the client that set the exception or the server name, and <set-ts> being a unix timestamp representing when it was set.
     # @format 348 <client> <channel> <exceptionmask> [<who> <set-ts>]
     RPL_EXCEPTLIST = :"348"
@@ -474,14 +441,9 @@ module IIRC
     # Reply to the \users (when the channel is set +D, QuakeNet relative). The proper define name for this numeric is unknown at this time. Also known as RPL_DELNAMREPLY (ircu)
     # @format 355 <client> ( '=' / '*' / '@' ) <channel> ' ' : [ '@' / '+' ] <nick> *( ' ' [ '@' / '+' ] <nick> )
     RPL_NAMREPLY_ = :"355"
-    RPL_MAP = :"357"
-    RPL_MAPMORE = :"358"
-    RPL_MAPEND = :"359"
-    # Defined in header file, but never used. Initially introduced in charybdis 2.1 behind `"#if 0"`, with the other side using RPL_WHOISACTUALLY
-    RPL_WHOWASREAL = :"360"
-    RPL_KILLDONE = :"361"
-    RPL_CLOSING = :"362"
-    RPL_CLOSEEND = :"363"
+    RPL_MAP_AUSTHEX = :"357"
+    RPL_MAPMORE_AUSTHEX = :"358"
+    RPL_MAPEND_AUSTHEX = :"359"
     # Reply to the LINKS command
     # @format 364 <client> <mask> <server> :<hopcount> <server_info>
     RPL_LINKS = :"364"
@@ -506,7 +468,6 @@ module IIRC
     # Reply to MOTD
     # @format 372 <client> :- <string>
     RPL_MOTD = :"372"
-    RPL_INFOSTART = :"373"
     # Termination of an RPL_INFO list
     # @format 374 <client> :<info>
     RPL_ENDOFINFO = :"374"
@@ -517,18 +478,10 @@ module IIRC
     # @format 376 <client> :<info>
     RPL_ENDOFMOTD = :"376"
     RPL_KICKEXPIRED = :"377"
-    # Used during the connection (after MOTD) to announce the network policy on spam and privacy. Supposedly now obsoleted in favor of using NOTICE.
-    # @format 377 <client> :<text>
-    RPL_SPAM = :"377"
     RPL_BANEXPIRED = :"378"
-    RPL_WHOISHOST = :"378"
-    # Used by AustHex to 'force' the display of the MOTD, however is considered obsolete due to client/script awareness & ability to display the MOTD regardless.
-    RPL_MOTD = :"378"
+    RPL_WHOISHOST_UNREAL = :"378"
     RPL_KICKLINKED = :"379"
-    RPL_WHOISMODES = :"379"
-    # Moved to 652 in InspIRCd 3.0
-    # @format 379 <client> <nick> :was connecting from <host>
-    RPL_WHOWASIP = :"379"
+    RPL_WHOISMODES_UNREAL = :"379"
     RPL_BANLINKED = :"380"
     RPL_YOURHELPER = :"380"
     # Successful reply from OPER. Also known as RPL_YOUAREOPER (InspIRCd)
@@ -540,29 +493,25 @@ module IIRC
     # Sent upon successful registration of a service
     # @format 383 <client> :You are service <service_name>
     RPL_YOURESERVICE = :"383"
-    RPL_MYPORTIS = :"384"
     RPL_NOTOPERANYMORE = :"385"
     RPL_QLIST = :"386"
-    RPL_IRCOPS = :"386"
+    RPL_IRCOPS_ULTIMATE = :"386"
     RPL_IRCOPSHEADER = :"386"
-    # Used by Hybrid's old OpenSSL OPER CHALLENGE response. This has been obsoleted in favor of SSL cert fingerprinting in oper blocks
-    # @format 386 :*
-    RPL_RSACHALLENGE = :"386"
     RPL_ENDOFQLIST = :"387"
-    RPL_ENDOFIRCOPS = :"387"
-    RPL_IRCOPS = :"387"
-    RPL_ALIST = :"388"
-    RPL_ENDOFIRCOPS = :"388"
-    RPL_ENDOFALIST = :"389"
+    RPL_ENDOFIRCOPS_ULTIMATE = :"387"
+    RPL_IRCOPS_NEFARIOUS = :"387"
+    RPL_ALIST_UNREAL = :"388"
+    RPL_ENDOFIRCOPS_NEFARIOUS = :"388"
+    RPL_ENDOFALIST_UNREAL = :"389"
     # Response to the TIME command. The string format may vary greatly.
     # @format 391 <client> <server> :<time string>
-    RPL_TIME = :"391"
+    RPL_TIME_RFC1459 = :"391"
     # This extension adds the timestamp and timestamp-offset information for clients.
     # @format 391 <client> <server> <timestamp> <offset> :<time string>
-    RPL_TIME = :"391"
+    RPL_TIME_IRCU = :"391"
     # Timezone name is acronym style (eg. 'EST', 'PST' etc). The microseconds field is the number of microseconds since the UNIX epoch, however it is relative to the local timezone of the server. The timezone field is ambiguous, since it only appears to include American zones.
     # @format 391 <client> <server> <timezone name> <microseconds> :<time string>
-    RPL_TIME = :"391"
+    RPL_TIME_BDQ_IRCD = :"391"
     # Yet another variation, including the time broken down into its components. Time is supposedly relative to UTC.
     # @format 391 <client> <server> <year> <month> <day> <hour> <minute> <second>
     RPL_TIME = :"391"
@@ -741,8 +690,6 @@ module IIRC
     # Returned to a client after an attempt to register on a server configured to ban connections from that client
     # @format 465 <client> :<reason>
     ERR_YOUREBANNEDCREEP = :"465"
-    # Sent by a server to a user to inform that access to the server will soon be denied
-    ERR_YOUWILLBEBANNED = :"466"
     # Returned when the channel key for a channel has already been set
     # @format 467 <client> <channel> :<reason>
     ERR_KEYSET = :"467"
@@ -788,8 +735,6 @@ module IIRC
     ERR_CANNOTKNOCK = :"480"
     # @format 480 <nick> <channel> :Cannot join channel
     ERR_THROTTLE = :"480"
-    # Moved to 489 to match other servers.
-    ERR_SSLONLYCHAN = :"480"
     ERR_NOWALLOP = :"480"
     # Returned by any command requiring special privileges (eg. IRC operator) to indicate the operation was unsuccessful
     # @format 481 <client> :<reason>
@@ -814,13 +759,9 @@ module IIRC
     ERR_ISREALSERVICE = :"485"
     # @format 485 <client> <channel> :Cannot join channel (<reason>)
     ERR_CHANBANREASON = :"485"
-    # Defined in header file, but never used.
-    ERR_BANNEDNICK = :"485"
     # Also known as ERR_ACCOUNTONLY.
     ERR_NONONREG = :"486"
     ERR_RLINED = :"486"
-    # Unreal 3.2 uses 488 as the ERR_HTMDISABLED numeric instead
-    ERR_HTMDISABLED = :"486"
     ERR_CHANTOORECENT = :"487"
     ERR_MSGSERVICES = :"487"
     ERR_NOTFORUSERS = :"487"
@@ -841,7 +782,6 @@ module IIRC
     # Returned by OPER to a client who cannot become an IRC operator because the server has been configured to disallow the client's host
     # @format 491 <client> :<reason>
     ERR_NOOPERHOST = :"491"
-    ERR_NOSERVICEHOST = :"492"
     # Notifies the user that a message they have sent to a channel has been rejected as it contains CTCPs, and they cannot send messages containing CTCPs to this channel. Also known as ERR_NOCTCPALLOWED (InspIRCd).
     # @format 492 <client> :You cannot send CTCPs to this channel. Not sent: <message>
     ERR_NOCTCP = :"492"
@@ -855,9 +795,6 @@ module IIRC
     # @format 494 <client> <nick> :cannot answer you while you are <mode>, your message was not sent
     ERR_OWNMODE = :"494"
     ERR_BADLOGTYPE = :"495"
-    # This numeric is marked as "we should use 'resource temporarily unavailable' from ircnet/ratbox or whatever". Removed in InspIRCd 3.0.
-    # @format 495 <channel> :You cannot rejoin this channel yet after being kicked (+J)
-    ERR_DELAYREJOIN = :"495"
     ERR_BADLOGSYS = :"496"
     ERR_BADLOGVALUE = :"497"
     ERR_ISOPERLCHAN = :"498"
@@ -877,21 +814,15 @@ module IIRC
     # Error sent to any user trying to view or change the user mode for a user other than themselves
     # @format 502 <client> :<reason>
     ERR_USERSDONTMATCH = :"502"
-    # @format 503 <client> :Message could not be delivered to <target>
-    ERR_GHOSTEDCLIENT = :"503"
-    # Warning about Virtual-World being turned off. Obsoleted in favor for RPL_MODECHANGEWARN
-    # @format 503 <client> :<warning_text>
-    ERR_VWORLDWARN = :"503"
     ERR_USERNOTONSERV = :"504"
     ERR_SILELISTFULL = :"511"
     # Also known as ERR_NOTIFYFULL (aircd), I presume they are the same
     ERR_TOOMANYWATCH = :"512"
-    ERR_NOSUCHGLINE = :"512"
+    ERR_NOSUCHGLINE_IRCU = :"512"
     # Also known as ERR_NEEDPONG (Unreal/Ultimate) for use during registration, however it is not used in Unreal (and might not be used in Ultimate either). Also known as ERR_WRONGPONG (Ratbox/charybdis)
     ERR_BADPING = :"513"
     ERR_TOOMANYDCC = :"514"
     ERR_NOSUCHJUPE = :"514"
-    ERR_INVALID_ERROR = :"514"
     ERR_BADEXPIRE = :"515"
     ERR_DONTCHEAT = :"516"
     # @format 517 <client> <command> :<info/reason>
@@ -904,10 +835,8 @@ module IIRC
     # @format 520 :Cannot join channel (+O)
     ERR_OPERONLY = :"520"
     ERR_MASKTOOWIDE = :"520"
-    # This is considered obsolete in favor of ERR_TOOMANYMATCHES, and should no longer be used.
-    ERR_WHOTRUNC = :"520"
     ERR_LISTSYNTAX = :"521"
-    ERR_NOSUCHGLINE = :"521"
+    ERR_NOSUCHGLINE_NEFARIOUS = :"521"
     ERR_WHOSYNTAX = :"522"
     # @format 523 <limit> :<command> search limit exceeded.
     ERR_WHOLIMEXCEED = :"523"
@@ -916,12 +845,6 @@ module IIRC
     # @format 524 <term> :Help not found
     ERR_HELPNOTFOUND = :"524"
     ERR_INVALIDKEY = :"525"
-    # Proposed.
-    # @format 525 <nickname> :<reason>
-    ERR_REMOTEPFX = :"525"
-    # Proposed.
-    # @format 526 <nickname> :<reason>
-    ERR_PFXUNROUTABLE = :"526"
     # @format 531 <client> <nick> :You are not permitted to send private messages to this user
     ERR_CANTSENDTOUSER = :"531"
     ERR_BADHOSTMASK = :"550"
@@ -935,7 +858,7 @@ module IIRC
     ERR_UPASSNOTSET = :"564"
     ERR_NOMANAGER = :"566"
     ERR_UPASS_SAME_APASS = :"567"
-    ERR_LASTERROR = :"568"
+    ERR_LASTERROR_IRCU = :"568"
     RPL_NOOMOTD = :"568"
     RPL_REAWAY = :"597"
     # Used when adding users to their `"WATCH"` list.
@@ -954,37 +877,31 @@ module IIRC
     RPL_WATCHCLEAR = :"608"
     # Returned when adding users to their `"WATCH"` list.
     RPL_NOWISAWAY = :"609"
-    RPL_MAPMORE = :"610"
+    RPL_MAPMORE_UNREAL = :"610"
     RPL_ISOPER = :"610"
     RPL_ISLOCOP = :"611"
     RPL_ISNOTOPER = :"612"
     RPL_ENDOFISOPER = :"613"
-    RPL_MAPMORE = :"615"
-    RPL_WHOISMODES = :"615"
-    RPL_WHOISHOST = :"616"
+    RPL_MAPMORE_PTLINK = :"615"
+    RPL_WHOISMODES_ULTIMATE = :"615"
+    RPL_WHOISHOST_ULTIMATE = :"616"
     # @format 617 <client> <nick> :has client certificate fingerprint <fingerprint>
     RPL_WHOISSSLFP = :"617"
     RPL_DCCSTATUS = :"617"
-    RPL_WHOISBOT = :"617"
+    RPL_WHOISBOT_ULTIMATE = :"617"
     RPL_DCCLIST = :"618"
     RPL_ENDOFDCCLIST = :"619"
     RPL_WHOWASHOST = :"619"
     RPL_DCCINFO = :"620"
-    RPL_RULESSTART = :"620"
-    RPL_RULES = :"621"
-    RPL_ENDOFRULES = :"622"
-    RPL_MAPMORE = :"623"
-    RPL_OMOTDSTART = :"624"
-    RPL_OMOTD = :"625"
-    RPL_ENDOFOMOTD = :"626"
+    RPL_RULESSTART_ULTIMATE = :"620"
+    RPL_RULES_ULTIMATE = :"621"
+    RPL_ENDOFRULES_ULTIMATE = :"622"
+    RPL_MAPMORE_ULTIMATE = :"623"
+    RPL_OMOTDSTART_ULTIMATE = :"624"
+    RPL_OMOTD_ULTIMATE = :"625"
+    RPL_ENDOFOMOTD_ULTIMATE = :"626"
     RPL_SETTINGS = :"630"
     RPL_ENDOFSETTINGS = :"631"
-    # Never actually used by Unreal - was defined however the feature that would have used this numeric was never created.
-    RPL_DUMPING = :"640"
-    # Never actually used by Unreal - was defined however the feature that would have used this numeric was never created.
-    RPL_DUMPRPL = :"641"
-    # Never actually used by Unreal - was defined however the feature that would have used this numeric was never created.
-    RPL_EODUMP = :"642"
     # Sent when the user does not provide enough parameters for a command.
     # @format 650 <client> <command> :<syntax>
     RPL_SYNTAX = :"650"
@@ -1036,16 +953,10 @@ module IIRC
     RPL_COMMANDSEND = :"701"
     # Output from the MODLIST command
     # @format 702 <?> 0x<?> <?> <?>
-    RPL_MODLIST = :"702"
-    # Moved to 700 in InspIRCd 3.0
-    # @format 702 <client> :<command> <module name> <minimum parameters>
-    RPL_COMMANDS = :"702"
+    RPL_MODLIST_RATBOX = :"702"
     # Terminates MODLIST output
     # @format 703 <client> :<text>
     RPL_ENDOFMODLIST = :"703"
-    # Moved to 701 in InspIRCd 3.0
-    # @format 703 <client> :End of COMMANDS list
-    RPL_COMMANDSEND = :"703"
     # Start of HELP command output
     # @format 704 <client> <command> :<text>
     RPL_HELPSTART = :"704"
@@ -1099,13 +1010,13 @@ module IIRC
     RPL_UMODEGMSG = :"718"
     # IRC Operator MOTD header, sent upon OPER command
     # @format 720 <client> :<text>
-    RPL_OMOTDSTART = :"720"
+    RPL_OMOTDSTART_RATBOX = :"720"
     # IRC Operator MOTD text (repeated, usually)
     # @format 721 <client> :<text>
-    RPL_OMOTD = :"721"
+    RPL_OMOTD_RATBOX = :"721"
     # IRC operator MOTD footer
     # @format 722 <client> :<text>
-    RPL_ENDOFOMOTD = :"722"
+    RPL_ENDOFOMOTD_RATBOX = :"722"
     # Returned from an oper command when the IRC operator does not have the relevant operator privileges.
     # @format 723 <client> <command> :<text>
     ERR_NOPRIVS = :"723"
@@ -1242,18 +1153,6 @@ module IIRC
     # Used by InspIRCd's m_denychans module.
     # @format 926 <client> <channel> :Channel <channel> is forbidden: <reason>
     ERR_BADCHANNEL = :"926"
-    # Replaced with ERR_CANNOTSENDTOCHAN in InspIRCd 3.0.
-    # @format 936 <client> <channel> <message> :Your message contained a censored word, and was blocked
-    ERR_WORDFILTERED = :"936"
-    # Used by InspIRCd's m_chanfilter module. Replaced with ERR_LISTMODEALREADYSET in 3.0.
-    # @format 937 <client> <chan> :The word <word> is already on the spamfilter list
-    ERR_ALREADYCHANFILTERED = :"937"
-    # Used by InspIRCd's m_chanfilter module. Replaced with ERR_LISTMODENOTSET in 3.0.
-    # @format 938 <client> <chan> :No such spamfilter word is set
-    ERR_NOSUCHCHANFILTER = :"938"
-    # Used by InspIRCd's m_chanfilter module. Replaced with ERR_BANLISTFULL in 3.0.
-    # @format 939 <client> <chan> :Channel spamfilter list is full
-    ERR_CHANFILTERFULL = :"939"
     # Used by InspIRCd's m_chanfilter module.
     # @format 940 <client> <channel> :End of channel spamfilter list
     RPL_ENDOFSPAMFILTER = :"940"
@@ -1313,7 +1212,7 @@ module IIRC
     ERR_CANTLOADMODULE = :"974"
     # @format 975 <client> <modulename> :Module successfully loaded.
     RPL_LOADEDMODULE = :"975"
-    ERR_LASTERROR = :"975"
+    ERR_LASTERROR_NEFARIOUS = :"975"
     # Used by InspIRCd's m_lockserv module.
     # @format 988 <client> <server> :Closed for new connections
     RPL_SERVLOCKON = :"988"
@@ -1347,12 +1246,6 @@ module IIRC
     # Used by InspIRCd's m_dccallow module.
     # @format 998 <client> :DCCALLOW command not understood
     ERR_UNKNOWNDCCALLOWCMD = :"998"
-    # Used by InspIRCd's m_dccallow module.
-    # @format 998 <client> :<help>
-    RPL_DCCALLOWHELP = :"998"
-    # Used by InspIRCd's m_dccallow module.
-    # @format 999 <client> :End of DCCALLOW HELP
-    RPL_ENDOFDCCALLOWHELP = :"999"
     # Also known as ERR_NUMERICERR (Unreal) or ERR_LAST_ERR_MSG
     ERR_NUMERIC_ERR = :"999"
   end
