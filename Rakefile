@@ -45,7 +45,7 @@ task :numerics do
 
       name = row['name']
       if counts[name] > 1 and row['origin']
-        name += '_' + row['origin'].gsub(/[^[:alnum:]]/, '_').sub(/_{2,}/, '_').sub(/_$/, '').upcase
+        name += '_' + row['origin'].gsub(/[^[:alnum:]]/, '_').gsub(/_{2,}/, '_').sub(/_$/, '').upcase
       end
       if constants[name]
         name += '_ALT'
