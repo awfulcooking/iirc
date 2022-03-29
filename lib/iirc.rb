@@ -75,6 +75,7 @@ module IIRC
     include Bot::Verbs
     include Bot::Ambient
     include Bot::RegexHooks
+    include Bot::ISupport
   end
 
   module SSL
