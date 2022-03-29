@@ -1,3 +1,8 @@
+## [0.5.1] - 2022-03-29
+
+- [Batteries] Include ISupport
+- Add README example
+
 ## [0.5.0] - 2022-03-29
 
 - [Batteries] is now a module. Please change `class Foo < IIRC::Batteries`
