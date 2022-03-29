@@ -1,3 +1,7 @@
+## [0.4.2] - 2022-03-29
+
+- Fix example in README
+
 ## [0.4.1] - 2022-03-29
 
 - [ISupport] Add module to process RPL_ISUPPORT
