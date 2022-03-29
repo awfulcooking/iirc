@@ -1,8 +1,26 @@
 # Lean, mean IRC processing machine
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iirc`. To experiment with that code, run `bin/console` for an interactive prompt.
+```ruby
+require 'iirc'
 
-TODO: Delete this and the text above, and describe your gem
+class CoolBot < IIRC::IRCv3Bot
+  include Verbs
+
+  def configure_coolness
+    on /^!poke/, :poke_back
+  end
+
+  def poke_back(evt)
+    act "pokes #{evt.sender.nick} back!!!"
+  end
+
+  def autojoin_channels
+    ['##coolness']
+  end
+end
+
+CoolBot.run 'irc.libera.chat' if __FILE__ == $0
+```
 
 ## Installation
 
@@ -22,7 +40,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Flesh out usage instructions here
 
 ## Development
 
