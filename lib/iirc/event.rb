@@ -17,6 +17,10 @@ module IIRC
       @args = v || []
     end
 
+    def nick
+      sender&.nick
+    end
+
     def target
       args.first
     end
