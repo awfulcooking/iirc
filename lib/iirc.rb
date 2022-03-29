@@ -66,7 +66,8 @@ module IIRC
     include IRCv3::LabeledRequests
   end
 
-  class Batteries < IRCv3Bot
+  # Batteries is a recommended set of modules for writing interactive bots.
+  module Bot::Batteries
     include Bot::Channels
     include Bot::Members
     include Bot::Formatting
@@ -128,5 +129,5 @@ module IIRC
 end
 
 def IIRC(*args, **kwargs, &blk)
-  Class.new(IIRC::Batteries, &blk)
+  Class.new(IIRC::IRCv3Bot, &blk)
 end

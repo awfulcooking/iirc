@@ -1,7 +1,8 @@
 require "net/https"
 require "iirc"
 
-class Wolfram < IIRC::Batteries
+class Wolfram < IIRC::IRCv3Bot
+  include Batteries
   include PrintIO
 
   def on_privmsg(evt)

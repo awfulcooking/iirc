@@ -1,6 +1,7 @@
 require "iirc"
 
 IIRC {
+  include IIRC::Bot::Batteries
   include IIRC::Bot::PrintIO
 
   def facts
