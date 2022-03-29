@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::OperUp
+  module OperUp
     def oper_up!
       self << "OPER #{ENV['IRC_OPER']}" if ENV['IRC_OPER']
     end

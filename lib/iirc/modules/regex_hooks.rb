@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::RegexHooks
+  module RegexHooks
     def regex_hooks
       hooks.filter { |k,v| Regexp === k }.freeze
     end

@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::TrackOwnNick
+  module TrackOwnNick
     private
 
       def configure_own_nick_tracking

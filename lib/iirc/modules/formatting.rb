@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Formatting
+  module Formatting
     module_function
       def bold(s) "\x02#{s}\x02" end
       def italic(s) "\x1d#{s}\x1d" end

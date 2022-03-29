@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Configure
+  module Configure
     def self.included(m)
       require 'set'
       m.extend ClassMethods

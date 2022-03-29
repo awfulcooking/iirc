@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Verbs
+  module Verbs
     def join(channel) self << "JOIN #{channel}" end
     def part(channel, reason=nil) self << "PART #{channel}#{" :#{reason}" if reason}" end
     def names(channel) self << "NAMES #{channel}" end

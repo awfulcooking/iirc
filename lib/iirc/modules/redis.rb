@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Redis
+  module Redis
     def self.included(*)
       require 'redis'
     end

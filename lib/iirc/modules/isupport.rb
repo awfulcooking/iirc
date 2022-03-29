@@ -11,7 +11,7 @@ module IIRC
   # @see https://defs.ircdocs.horse/defs/isupport.html List of tokens and their values (defs.ircdocs.horse)
   # @see https://datatracker.ietf.org/doc/html/draft-hardy-irc-isupport-00
   # @see https://datatracker.ietf.org/doc/html/draft-brocklesby-irc-isupport-00
-  module Bot::ISupport
+  module ISupport
     # Hash of tokens sent by the server after registration indicating feature support and limits.
     # @return [Hash#extend(Inquiry)] the raw isupport key=>value pairs. keys with no value are assigned +true+.
     def isupport
@@ -38,7 +38,7 @@ module IIRC
   #
   # The key=>value format returned by #isupport won't change.
   # Rather, methods which process the values can be added here.
-  module Bot::ISupport::Inquiry
+  module ISupport::Inquiry
     # Whether or not the server supports a user mode which lets clients mark themselves as bots.
     def bot_mode?
       !!bot_mode

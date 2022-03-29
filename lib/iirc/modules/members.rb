@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Members
+  module Members
     def members
       @members ||= {}
     end

@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::PrintIO
+  module PrintIO
     def lines
       super { |line| puts ">> #{line}"; yield line }
     end

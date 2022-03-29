@@ -2,13 +2,13 @@
 
 require "test_helper"
 
-describe IIRC::Bot::ReplyTarget do
+describe IIRC::ReplyTarget do
   before do
     @subject = IIRC::Bot.new(nil, nick: 'CoolBot')
   end
 
   it "is included in IIRC::Bot" do
-    assert_includes IIRC::Bot.ancestors, IIRC::Bot::ReplyTarget
+    assert_includes IIRC::Bot.ancestors, IIRC::ReplyTarget
   end
 
   describe "Target is me" do

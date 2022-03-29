@@ -1,12 +1,12 @@
 require "iirc"
 
 class Greeter < IIRC::Bot
-  include AutoJoin
-  include Verbs
-  include PrintIO
+  include IIRC::AutoJoin
+  include IIRC::Verbs
+  include IIRC::PrintIO
 
   def on_join(evt)
-    say evt.target, "Hello #{evt.sender.nick}!" unless me === evt.sender
+    say evt.target, "Hello #{evt.nick}!" unless me === evt.sender
   end
 
   def autojoin_channels

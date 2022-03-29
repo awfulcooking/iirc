@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::AutoJoin
+  module AutoJoin
     private def configure_autojoin_hook
       on :'001', :autojoin!
     end

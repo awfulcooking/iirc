@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Channels
+  module Channels
     def channels
       @channels ||= Set.new
     end

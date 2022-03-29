@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Pong
+  module Pong
     def on_ping evt
       self << "PONG :#{evt.args[0]}"
     end

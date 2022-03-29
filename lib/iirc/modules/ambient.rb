@@ -1,7 +1,7 @@
 require_relative "reply_target"
 
 module IIRC
-  module Bot::Ambient
+  module Ambient
     module Events
       private
         def configure_ambient_events

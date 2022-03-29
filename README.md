@@ -10,10 +10,10 @@ It's based on composition, with code reload, extensibility and predictability in
 require 'iirc'
 
 class CoolBot < IIRC::IRCv3Bot
-  include Verbs
-  include AutoJoin
-  include RegexHooks
-  include PrintIO
+  include IIRC::Verbs
+  include IIRC::AutoJoin
+  include IIRC::RegexHooks
+  include IIRC::PrintIO
 
   def configure_coolness
     on /^!poke/, :poke_back
@@ -35,8 +35,8 @@ CoolBot.run 'irc.libera.chat' if __FILE__ == $0
 require 'iirc'
 
 class SillyBot < IIRC::IRCv3Bot
-  include AcceptInvites
-  include Batteries # Verbs, Ambient, RegexHooks used here
+  include IIRC::AcceptInvites
+  include IIRC::Batteries # Verbs, Ambient, RegexHooks used here
 
   def configure_silliness
     on /^!uptime/, :say_uptime
@@ -110,7 +110,7 @@ For example:
 
 ```ruby
 class CoolBot < IIRC::IRCv3Bot
-  include RegexHooks
+  include IIRC::RegexHooks
 
   def configure_reload
     on /^=reload/, :reload!

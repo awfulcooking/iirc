@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::IRCv3
+  module IRCv3
     module LabeledRequests
       def labeled_request(line)
         SecureRandom.alphanumeric(8).tap { |id|

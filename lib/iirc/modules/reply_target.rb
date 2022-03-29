@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::ReplyTarget
+  module ReplyTarget
     # The +reply_target+ of an event is the sender's nickname when _we_ are the
     # +target+. Otherwise, it returns the regular +target+.
     #

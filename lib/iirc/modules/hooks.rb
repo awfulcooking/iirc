@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Hooks
+  module Hooks
     def hooks
       @hooks ||= Hash.new { |h,v| h[v] = Set.new }
     end

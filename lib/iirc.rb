@@ -4,33 +4,33 @@ require_relative "iirc/event"
 require_relative "iirc/sender"
 require_relative "iirc/user"
 
+require_relative "iirc/bot"
 require_relative "iirc/numerics"
 
-require_relative "iirc/bot"
-require_relative "iirc/bot/accept_invites"
-require_relative "iirc/bot/ambient"
-require_relative "iirc/bot/autojoin"
-require_relative "iirc/bot/channels"
-require_relative "iirc/bot/configure"
-require_relative "iirc/bot/formatting"
-require_relative "iirc/bot/hooks"
-require_relative "iirc/bot/isupport"
-require_relative "iirc/bot/members"
-require_relative "iirc/bot/oper_up"
-require_relative "iirc/bot/parsing"
-require_relative "iirc/bot/pong"
-require_relative "iirc/bot/print_io"
-require_relative "iirc/bot/reading"
-require_relative "iirc/bot/redis"
-require_relative "iirc/bot/regex_hooks"
-require_relative "iirc/bot/reply_target"
-require_relative "iirc/bot/track_own_nick"
-require_relative "iirc/bot/verbs"
+require_relative "iirc/modules/accept_invites"
+require_relative "iirc/modules/ambient"
+require_relative "iirc/modules/autojoin"
+require_relative "iirc/modules/channels"
+require_relative "iirc/modules/configure"
+require_relative "iirc/modules/formatting"
+require_relative "iirc/modules/hooks"
+require_relative "iirc/modules/isupport"
+require_relative "iirc/modules/members"
+require_relative "iirc/modules/oper_up"
+require_relative "iirc/modules/parsing"
+require_relative "iirc/modules/pong"
+require_relative "iirc/modules/print_io"
+require_relative "iirc/modules/reading"
+require_relative "iirc/modules/redis"
+require_relative "iirc/modules/regex_hooks"
+require_relative "iirc/modules/reply_target"
+require_relative "iirc/modules/track_own_nick"
+require_relative "iirc/modules/verbs"
 
-require_relative "iirc/bot/ircv3/caps"
-require_relative "iirc/bot/ircv3/parsing"
-require_relative "iirc/bot/ircv3/batches"
-require_relative "iirc/bot/ircv3/labeled_requests"
+require_relative "iirc/modules/ircv3/caps"
+require_relative "iirc/modules/ircv3/parsing"
+require_relative "iirc/modules/ircv3/batches"
+require_relative "iirc/modules/ircv3/labeled_requests"
 
 module IIRC
   class Error < StandardError; end
@@ -67,15 +67,15 @@ module IIRC
   end
 
   # Batteries is a recommended set of modules for writing interactive bots.
-  module Bot::Batteries
-    include Bot::Channels
-    include Bot::Members
-    include Bot::Formatting
-    include Bot::AutoJoin
-    include Bot::Verbs
-    include Bot::Ambient
-    include Bot::RegexHooks
-    include Bot::ISupport
+  module Batteries
+    include Channels
+    include Members
+    include Formatting
+    include AutoJoin
+    include Verbs
+    include Ambient
+    include RegexHooks
+    include ISupport
   end
 
   module SSL

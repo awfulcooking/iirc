@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::AcceptInvites
+  module AcceptInvites
     # Override this to decide whether we should accept a given invite.
     # By default, all invites are accepted.
     # @param [Event]

@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::IRCv3
+  module IRCv3
     module Caps
       def caps
         raise NotImplementedError.new

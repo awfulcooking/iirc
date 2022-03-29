@@ -1,5 +1,5 @@
 module IIRC
-  module Bot::Parsing
+  module Parsing
     def parse(line)
       Event.new.tap { |evt|
         words = line.chomp.split " "
