@@ -1,3 +1,8 @@
+## [0.4.1] - 2022-03-29
+
+- [ISupport] Add module to process RPL_ISUPPORT
+- [ISupport] Add Inquiry helpers + docs
+
 ## [0.4.0] - 2022-03-27
 
 - [Numerics] Add module with constants imported from ircdocs.horse
