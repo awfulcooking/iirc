@@ -2,7 +2,7 @@
 
 IIRC is a new IRC framework for Ruby.
 
-IRCv3 features such as message tags, batch and labeled-response are supported.
+It supports IRCv3 features such as message tags, batch and labeled-response.
 
 It's based on composition, with code reload, extensibility and predictability in mind,
 
@@ -29,6 +29,31 @@ class CoolBot < IIRC::IRCv3Bot
 end
 
 CoolBot.run 'irc.libera.chat' if __FILE__ == $0
+```
+
+```ruby
+require 'iirc'
+
+class SillyBot < IIRC::IRCv3Bot
+  include AcceptInvites
+  include Batteries # Verbs, Ambient, RegexHooks used here
+
+  def configure_silliness
+    on /^!uptime/, :say_uptime
+    on :part, :say_good_riddance
+  end
+
+  @@start_time ||= Time.now
+  def say_uptime
+    say "I've been up for #{((Time.now-@@start_time)/60/60).truncate(2)} hours"
+  end
+
+  def say_good_riddance
+    say 'Good riddance!'
+  end
+end
+
+SillyBot.run 'irc.libera.chat' if __FILE__ == $0
 ```
 
 ## Events
