@@ -11,7 +11,7 @@ class CoolBot < IIRC::IRCv3Bot
   end
 
   def poke_back(evt)
-    act "pokes #{evt.sender.nick} back!!!"
+    act reply_target(evt), "pokes #{evt.sender.nick} back!!!"
   end
 
   def autojoin_channels
