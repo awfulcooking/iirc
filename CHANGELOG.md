@@ -1,3 +1,12 @@
+## [0.5.0] - 2022-03-29
+
+- [Batteries] is now a module. Please change `class Foo < IIRC::Batteries`
+    to `class Foo < IIRC::IRCv3Bot; include Batteries; end`
+
+- [Event] Add #nick method (equivalent to sender.nick)
+
+- Improved README
+
 ## [0.4.2] - 2022-03-29
 
 - Fix example in README
