@@ -1,6 +1,27 @@
 require_relative "reply_target"
 
 module IIRC
+  # Ambient lets you access the current event without having to pass it around.
+  # 
+  # A thread-local variable is set by {Events} when an event comes in.  
+  #
+  # Overloads of {#say}, {#act}, {#mode}, {#join} etc. make their
+  #   first argument optional.
+  #
+  # This module pulls in both {Events} and {Verbs}.
+  #
+  # @example say (with Ambient)
+  #   def on_privmsg
+  #     say "Hello!"
+  #   end
+  # @example say (without)
+  #   def on_privmsg(evt)
+  #     say reply_target(evt), "Hello!"
+  #   end
+  # @example mode (with Ambient)
+  #   def on_join(evt)
+  #     mode "+v #{evt.nick}"
+  #   end
   module Ambient
     module Events
       private
