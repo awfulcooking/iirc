@@ -1,3 +1,15 @@
+## [0.6.0] - 2022-03-30
+
+- Move modules from IIRC::Bot to IIRC namespace
+
+- Document AcceptInvites
+- Document Ambient
+- Document AutoJoin
+- Document Channels
+- Document Members
+- Document PrintIO
+- Document Reading
+
 ## [0.5.1] - 2022-03-29
 
 - [Batteries] Include ISupport
