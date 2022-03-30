@@ -1,8 +1,11 @@
 module IIRC
+  # Accept INVITEs to join a channel.
+  # By default, all invites are accepted.  
+  # To choose which ones to accept, define {#accept_invite?} on your object / class.
   module AcceptInvites
-    # Override this to decide whether we should accept a given invite.
+    # Decides whether to accept a given INVITE.
     # By default, all invites are accepted.
-    # @param [Event]
+    # @param evt [Event] the invite
     # @return [true] if we should join the channel
     def accept_invite?(evt)
       true
