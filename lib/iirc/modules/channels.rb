@@ -1,15 +1,19 @@
 module IIRC
+  # Keeps track of the channels we are currently in.
+  # The list can be retrieved with {#channels}.
+  # Based on JOIN, PART and KICK messages received for our nick.
   module Channels
+    # @return [Set<String>] 
     def channels
       @channels ||= Set.new
     end
 
     private
       def configure_channel_tracking
-        hook :track_self_channels
+        hook :track_own_channels
       end
 
-      def track_self_channels(evt)
+      def track_own_channels(evt)
         case evt.verb
         when :'001'
           channels.clear
