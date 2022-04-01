@@ -48,4 +48,11 @@ describe IIRC::RegexHooks do
     @subject >> ":foo NOTICE #chan :take no notice"
     assert_equal 0, take, "/take no notice/ fired"
   end
+
+  it "passes matches as args" do
+    args = []
+    @subject.on(/^!foo (\d+) (\w+)/) { |evt,num,str| args << num << str }
+    @subject >> ":foo PRIVMSG #chan :!foo 432 fu bar"
+    assert_equal ["432", "fu"], args
+  end
 end

@@ -13,7 +13,7 @@ module IIRC
         regex_hooks
           .filter { |k,v| k === evt.message }
           .each_value { |actions|
-            actions.each { |action| call action, evt }
+            actions.each { |action| call action, evt, *Regexp.last_match&.values_at(1..) }
           }
       end
   end
