@@ -1,3 +1,10 @@
+## [0.6.1] - 2022-04-01
+
+- Add SedBot example
+- [RegexHooks] Passes matches as args
+  - e.g. (evt, match_one, match_two, ..)
+- [RegexHooks] Add some tests
+
 ## [0.6.0] - 2022-03-30
 
 - Move modules from IIRC::Bot to IIRC namespace
