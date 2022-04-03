@@ -8,11 +8,6 @@ describe IIRC::RegexHooks do
     include IIRC::Configure
     include IIRC::RegexHooks
     include IIRC::Parsing
-
-    def >>(line)
-      evt = parse(line)
-      fire! evt.verb, evt
-    end
   end
 
   before do

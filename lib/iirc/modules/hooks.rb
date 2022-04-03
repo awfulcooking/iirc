@@ -7,13 +7,17 @@ module IIRC
     def run
       lines { |line|
         begin
-          evt = parse(line)
-          fire! evt.verb, evt
+          self >> line
         rescue Exception => ex
           puts ex.message
           puts ex.backtrace
         end
       }
+    end
+
+    def >>(line)
+      evt = parse(line)
+      fire! evt.verb, evt
     end
 
     def on verb=nil, action=nil, &blk
