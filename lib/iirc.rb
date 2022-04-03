@@ -49,8 +49,6 @@ module IIRC
         local_host: local_host, local_port: local_port,
         ssl_context: ssl_context)
 
-      user_params[:nick] = self.name&.split('::').last if !user_params.key?(:nick)
-
       new(socket, **user_params).tap { |bot|
         bot.register!
         bot.tap(&blk) if blk

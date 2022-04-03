@@ -21,6 +21,10 @@ module IIRC
       super() if defined? super
       self.socket = socket
       self.user = user.is_a?(User) ? user : User.new(**user)
+
+      if !user.key?(:nick) and !self.user.nick
+        self.user.nick = self.class.name&.split('::').last
+      end
     end
 
     def register!
