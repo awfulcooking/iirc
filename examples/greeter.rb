@@ -14,4 +14,4 @@ class Greeter < IIRC::Bot
   end
 end
 
-Greeter.run 'irc.libera.chat', nick: 'GreeterBot' if __FILE__ == $0
+IIRC.cli << Greeter

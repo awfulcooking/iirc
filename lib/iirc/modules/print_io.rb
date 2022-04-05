@@ -4,13 +4,13 @@ module IIRC
   module PrintIO
     # Prints `>> #{line}` to stdout, then yields, for each line from super.
     def lines
-      super { |line| puts ">> #{line}"; yield line }
+      super { |line| puts "\t   #{Paint['>>']} #{Paint[line.chomp, :italic]}"; yield line }
     end
 
     # Prints `<< #{line}` to stdout, then calls super
     # @return [self]
     def <<(line)
-      puts "<< #{line}"
+      puts "\t#{Paint['<<', 'yellow', :bold]} #{Paint[line, :white, :bright, :bold]}"
       super
     end
   end

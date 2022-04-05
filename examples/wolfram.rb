@@ -37,4 +37,6 @@ class Wolfram < IIRC::IRCv3Bot
   end
 end
 
-Wolfram.run 'irc.libera.chat', nick: 'WolframBot'+rand(100).to_s
+if __FILE__ == $0
+  Wolfram.run 'irc.libera.chat', nick: 'WolframBot'+rand(100).to_s
+end

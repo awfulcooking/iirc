@@ -32,6 +32,8 @@ require_relative "iirc/modules/ircv3/parsing"
 require_relative "iirc/modules/ircv3/batches"
 require_relative "iirc/modules/ircv3/labeled_requests"
 
+require_relative "iirc/cli/cli"
+
 module IIRC
   class Error < StandardError; end
 
