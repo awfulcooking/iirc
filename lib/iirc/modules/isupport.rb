@@ -66,5 +66,20 @@ module IIRC
     def channel_prefixes
       (@channel_prefixes ||= self['CHANTYPES']&.chars.freeze) || ['#'].freeze
     end
+
+    # Modes which grant privileges to a user in a channel and their respective
+    # prefix characters seen in NAMES, WHO and WHOIS replies.
+    # @see https://modern.ircdocs.horse/#channel-membership-prefixes
+    # @example qaohv
+    #   isupport.prefix_modes # => {'q'=>'~', 'a'=>'&', 'o'=>'@', 'h'=>'%', 'v'=>'+'}
+    # @return [Hash<String,String>] channel mode => prefix character
+    def prefix_modes
+      if self['PREFIX'].is_a? String
+        modes, symbols = self['PREFIX'][1..].split(')').map!(&:chars)
+        Hash[modes.zip(symbols)].freeze
+      else
+        {}.freeze
+      end
+    end
   end
 end
