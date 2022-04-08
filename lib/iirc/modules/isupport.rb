@@ -20,7 +20,12 @@ module IIRC
 
     private
       def configure_isupport
+        on :'001', :clear_isupport
         on :'005', :store_isupport
+      end
+
+      def clear_isupport
+        @isupport = nil
       end
 
       def store_isupport(evt)
