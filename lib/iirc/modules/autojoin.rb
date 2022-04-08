@@ -8,7 +8,7 @@ module IIRC
       on :'001', :autojoin!
     end
 
-    # Send JOIN for each {#autojoin_channel}
+    # Send JOIN for each in {#autojoin_channels}
     # @return [Array<String>] channels joined
     def autojoin!
       for channel in autojoin_channels
