@@ -31,9 +31,9 @@ module IIRC
       not user.nil?
     end
 
-    def nick; user&.nick end
+    def nick; user ? user.nick : without_leading_colon end
     def username; user&.username end
-    def host; server? ? without_leading_colon : user.host end
+    def host; user ? user.host : without_leading_colon end
 
     def to_prefix
       ":#{self}"
