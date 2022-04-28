@@ -48,8 +48,9 @@ module IIRC
   end
 
   module_function
-    # Extends and returns a source string with the IIRC::Sender mixin.
-    # Duplicates first if the string is frozen. Returns nil if source is nil.
+    # Adds the IIRC::Sender mixin to a string. 
+    # If the string is frozen, a copy is returned. 
+    # If the source is nil, nil is returned.
     #
     # @example :nick!user@host
     #   v = IIRC.Sender(":JimmyWales!jim@wikipedia.org") # => "JimmyWales!jim@wikipedia.org"
