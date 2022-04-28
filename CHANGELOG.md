@@ -1,3 +1,8 @@
+## [0.6.2] - 2022-04-28
+
+- [Event]  Add CTCP parsing methods
+- [Sender] Nick is the server name when sender is a server
+
 ## [0.6.1] - 2022-04-01
 
 - Add SedBot example
