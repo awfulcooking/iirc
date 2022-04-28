@@ -22,8 +22,8 @@ module IIRC
       self.socket = socket
       self.user = user.is_a?(User) ? user : User.new(**user)
 
-      if !user.key?(:nick) and !self.user.nick
-        self.user.nick = self.class.name&.split('::').last
+      if !user.key?(:nick)
+        self.user.nick ||= self.class.name&.split('::')&.last
       end
     end
 
