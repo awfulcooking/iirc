@@ -5,7 +5,7 @@ module IIRC
     alias :me :user
 
     def <<(text)
-      socket << text + "\r\n"
+      socket << text.tr("\r", "").tr("\n", "") + "\r\n"
       self
     end
 
