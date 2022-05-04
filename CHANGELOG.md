@@ -1,3 +1,9 @@
+## [0.6.3] - 2022-05-04
+
+- [Bot#<<] Strip all CR / LF characters passed to Bot#<<
+  - This will help prevent vulns such as:
+    https://matrix.org/blog/2022/05/04/0-34-0-security-release-for-matrix-appservice-irc-high-severity
+
 ## [0.6.2] - 2022-04-28
 
 - [Event]  Add CTCP parsing methods
