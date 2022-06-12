@@ -29,6 +29,7 @@ module IIRC
 
     def register!
       ensure_registration_info!
+      self << "PASS :#{me.password}" if me.password
       self << "USER #{me.username} 0 0 :#{me.realname}"
       self << "NICK #{me.nick}"
     end
